@@ -123,8 +123,71 @@ print()
 # 리스트 컴프리헨션
 '''
 - 리스트를 초기화 하는 방법 중 하나
+- 대괄호[] 안에 조건문과 반복문을 넣는 방식으로 초기화
+'''
+# 컴프리헨션 예제 1
+array = [ i for i in range(1, 20) if i % 2 == 1] # 1부터 19까지 수 중에서 홀수만 출력
+print(array)
+
+# 위의 컴프리헨션 코드와 같은 일반적인 코드
+array = []
+for i in range(20):
+    if i % 2 == 1:
+        array.append(i)
+print(array)
+print()
+print()
+
+# 컴프리헨션 예제 2
+array = [ i * i for i in range(1, 10)] # 1부터 9까지의 수를 제곱한 값들 출력
+print(array)
+
+# 컴프리헨션 예제 3. 2차원 리스트 초기화
+# N X M 크기 2차원 리스트 초기화
+n = 3
+m = 4
+array = [[0] * m for _ in range(n)]
+print(array)
+print()
 
 '''
+# _ (언더바)의 역할
+- 반복을 수행하되 반복을 위한 변수의 값을 무시하고자 함 
+'''
+# 1
+summary = 0
+for i in range(1, 10):
+    summary += i
+print(summary)
+
+# 2
+for _ in range(5):
+    print('Hello Python')
+print()
+
+# 컴프리헨션 예제 3-1. 잘못된 2차원 리스트의 초기화
+# N X M 크기 2차원 리스트를 잘못 초기화 하면 아래처럼 2차원 리스트를 생성하고 값을 변경할때
+# 변경된 값이 동일 값으로 치환되어 의도한 바와 다른 결과가 나올 수 있음
+n = 3
+m = 4
+array = [[0] * m] * n
+print(array)
+
+array[0][1] = 5 # 첫번째 row 의 두번째 column 값만 바꾸고 싶었으나 모든 두번째 column 값이 바뀌게 되는 결과가 나옴
+print(array)
+
+# 리스트 관련 기타 메서드
+'''
+- append() / 변수명.append() - 리스트에 원소 하나 삽입
+- sort() / 변수명.sort() , 변수명.sort(reverse=True) - 기본은 오름차순, reverse=True 옵션을 통해 내림차순
+- reverse() / 변수명.reverse() - 리스트 원소 순서 뒤집기
+- insert() / 변수명.insert(삽입위치인덱스, 삽입값) - 특정 인덱스 위치에 원소 삽입
+- count() / 변수명.count(특정값) - 리스트에서 특정 값을 가지는 데이터 개수 셈
+- remove() / 변수명.remove(특정값) - 특정값 갖는 원소 제거, 값을 가진 원소가 여러개면 하나만 제거. 
+'''
+
+
+
 
 
 
