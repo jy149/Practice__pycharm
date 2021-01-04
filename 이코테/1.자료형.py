@@ -175,7 +175,8 @@ print(array)
 
 array[0][1] = 5 # 첫번째 row 의 두번째 column 값만 바꾸고 싶었으나 모든 두번째 column 값이 바뀌게 되는 결과가 나옴
 print(array)
-
+print()
+print()
 # 리스트 관련 기타 메서드
 '''
 - append() / 변수명.append() - 리스트에 원소 하나 삽입
@@ -185,6 +186,162 @@ print(array)
 - count() / 변수명.count(특정값) - 리스트에서 특정 값을 가지는 데이터 개수 셈
 - remove() / 변수명.remove(특정값) - 특정값 갖는 원소 제거, 값을 가진 원소가 여러개면 하나만 제거. 
 '''
+
+a = [1, 4, 3]
+print(a)
+a.append(2)
+print('append :', a)
+a.sort()
+print('sort : ', a)
+a.sort(reverse=True)
+print('reverse_sort : ', a)
+a.reverse()
+print('reverse : ', a)
+a.insert(2, 3)
+print('insert : ', a)
+print(a.count(3)) # 3의 갯수세기
+a.remove(1)
+print('remove 1 :', a)
+a.remove(3)
+print('remove 3', a)
+a.remove(3)
+print('remove 3 one more', a)
+print()
+print()
+
+# remove() 로 리스트내의 원소를 제거하는 것은 하나밖에 안됌;
+# 그러면 전체 셋에서 한번에 지우려면 ???
+_set = [1, 2, 3, 4, 5, 5, 6, 5]
+remove_set = {3, 5} # dict 형태로 set설정해준다.
+result = [i for i in _set if i not in remove_set ] # remove_set에 포함되지 않은 값만을 저장
+print(result)
+print()
+print()
+
+# 문자열 자료형
+# 1. 문자열 초기화
+data = 'Hello world'
+print(data)
+data = "Don't you know \"Python\"?"
+print(data)
+print()
+
+# 2. 문자열 연산
+a = 'Hello'
+b = 'World'
+print(a +' '+ b)
+a = 'String'
+print(a*3)
+
+a = 'ABCDEF'
+print(a[2:5]) # CDE
+print()
+
+# 튜플 자료형
+'''
+- 튜플은 한 번 선언된 값을 변경할 수 없다
+- 리스트는 대괄호[] 를 사용하지만, 튜플은 소괄호() 를 사용한다.
+'''
+
+a = (1, 2, 3, 4)
+print(a)
+# a[2] = 7 -> 튜플을 바꾸고자하면 error 가 뜬다. 'tuple' object does not support item assignment
+print()
+
+# 사전자료형
+'''
+- key 와 value 의 쌍을 데이터로 가지는 자료형
+- 리스트나 튜플은 값을 순차적으로 저장함
+'''
+data = dict()
+data['사과'] = 'Apple'
+data['바나나'] = 'Banana'
+data['코코넛'] = 'Coconut'
+print(data, type(data))
+print()
+
+# 사전 자료형에 특정한 원소가 있는지 검사하기
+# 원소 in 사전 의 형태
+data = dict()
+data['사과'] = 'Apple'
+data['바나나'] = 'Banana'
+data['코코넛']= 'Coconut'
+
+if '사과' in data:
+    print("'사과'를 키로 가지는 데이터가 존재")
+print()
+# 사전 자료형 관련 함수
+# 키 데이터만 뽑아내기 -> keys(), 값 데이터만 뽑아내기 -> values()
+
+data = dict()
+data['사과'] = 'Apple'
+data['바나나'] = 'Banana'
+data['코코넛']= 'Coconut'
+
+key_list = data.keys() # key data
+key_value = data.values() # value data
+print(key_list)
+print(key_value)
+print()
+
+for key in key_list: # 각 key에 대한 값을 하나씩 출력
+    print(data[key])
+
+# 집합 자료형
+'''
+집합(set)
+- 중복을 허용하지 않음
+- 순서가 없음
+'''
+# 집합 자료형 초기화 방법1
+data1 = set([1, 1, 2, 3, 4, 4, 5])
+print(data1)
+
+# 집합 자료형 초기화 방법 2
+data = {1, 1, 2, 3, 4, 4, 5}
+print(data)
+print()
+# 집합 자료형의 연산
+a = set([1, 2, 3, 4, 5])
+b = set([3, 4, 5, 6, 7])
+print(a|b) # 합집합
+print(a & b) # 교집합
+print(a - b) # 차집합
+print()
+
+# 집합 자료형 관련 함수
+'''
+- add() - 하나의 집합 데이터에 값을 추가
+- update() - 여러 개의 값을 한번에 추가
+- remove() - 특정 값 제거
+'''
+data = set([1, 2, 3])
+print(data)
+
+data.add(4) # 원소 추가
+print(data)
+
+data.update([5, 5, 5, 6]) # 원소 여러개 추가
+print(data)
+
+data.remove(3)
+print(data)
+
+# 중복을 허용하지 않는다면?
+_list1 = [1, 1, 2, 2, 2, 3, 3, 4, 6, 5, 1]
+print(_list1)
+
+_set1 = set(_list1)
+print(_set1)
+
+
+
+
+
+
+
+
+
 
 
 
