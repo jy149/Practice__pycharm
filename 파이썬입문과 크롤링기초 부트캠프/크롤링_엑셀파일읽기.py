@@ -4,7 +4,6 @@ print(excel_file.sheetnames) # 쉬트 이름 확인 (리스트 타입 return)
 
 # 시트선택하기
 excel_sheet = excel_file['상품정보']
-
 # excel_sheet = excel_file.active # 시트가 한개면 .active 쌉가능
 
 # 시트 안에 데이터 읽기
