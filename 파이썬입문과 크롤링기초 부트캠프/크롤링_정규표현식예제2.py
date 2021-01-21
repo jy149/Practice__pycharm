@@ -23,11 +23,32 @@ print()
 # split 함수 : 찾은 정규표현식 패턴문자열을 기준으로 문자열을 분리
 import re
 pattern2 = re.compile(':')
-splited = pattern2.split('python:java')
+splited = pattern2.split('python:java:LIST')
 print(splited)
 
 # 예제 'VS'로 문자열 앞뒤 분리
 #pattern_ex = re.compile('VS')
-pattern_ex = re.compile(' [A-Z]{2} ')
+pattern_ex = re.compile(' [A-Z]{2} ') # 스페이스, 대문자로 이루어진 두 문자 -> VS 로 나뉨
 splited_ex = pattern_ex.split('python VS java')
 print(splited_ex)
+
+# sub 함수 : 찾은 정규표현식 패턴 문자열을 다른 문자열로 변경
+import re
+pattern2 = re.compile('-')
+subed = pattern2.sub('*', '921117-1032413') # sub(바꿀 문자열, 본래 문자열)
+print(subed)
+
+# re.sub 한번에 써버리기
+subed = re.sub('-', '**', '921117-1032413') # sub(정규표현식, 바꿀문자열, 본래문자열)
+print(subed)
+
+# 예제
+# 주민번호 뒷자리 ***로 바꿔버리기.
+import openpyxl
+work_book = openpyxl.load_workbook('data_kr.xlsx')
+work_sheet = work_book.active
+
+for each_row in work_sheet.rows:
+    print(re.sub('-[0-9]{7}', '-*******', each_row[1].value))
+work_book.close()
+
